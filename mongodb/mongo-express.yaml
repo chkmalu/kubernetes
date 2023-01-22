@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # namespace: mongo-space
+  name: mongoui-deployment
+  labels:
+    app: mongoui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongoui
+  template:
+    metadata:
+      labels:
+        app: mongoui
+    spec:
+      containers:
+        - name: mongoui
+          image: mongo-express
+          ports:
+            - containerPort: 8081
+          env:
+          - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: mongo-username
+          - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: mongo-password
+          - name: ME_CONFIG_MONGODB_SERVER
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-map
+                key: mongodb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  # namespace: mongo-space
+  name: mongoui-service
+spec:
+  selector:
+    app: mongoui
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+      nodePort: 30000
