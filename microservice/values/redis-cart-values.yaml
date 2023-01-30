@@ -1,0 +1,12 @@
+#deployment values
+serviceName: redis-cart
+serviceCount: 2
+imageName: redis:alpine
+servicePort: 6379
+serviceMontPath: /data
+volumeName: redis-data
+  
+  
+#service values
+servicePortType: ClusterIp
+hostPort: 7070

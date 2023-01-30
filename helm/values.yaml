@@ -1,0 +1,6 @@
+architecture: replicaset
+auth:
+  rootPassword: password
+replicaCount: 2
+persistence:
+  storageClass: mongodb-ebs

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      imagePullSecrets: 
+      - name: secret-dockercfg
+      containers:
+      - name: myapp
+        image: 081241791096.dkr.ecr.us-east-1.amazonaws.com/my-app:2.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081

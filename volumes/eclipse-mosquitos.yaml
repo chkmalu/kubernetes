@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-file
+data:
+  openports: |
+    80
+    443
+    22
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-file
+data:
+  confidential: dGhpcyBkYXRhIGlzIGVuY3J5cHRlZCB5b3UgY2FuIHNlZSBpdA==
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eclipse-deployment
+  labels:
+    app: eclipse
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eclipse
+  template:
+    metadata:
+      labels:
+        app: eclipse
+    spec:
+      containers:
+      - name: eclipse
+        image: eclipse-mosquitto
+        ports:
+        - containerPort: 9001
+        volumeMounts:
+        - name: config-vol
+          mountPath: /mosquitto/new-config/
+          readOnly: true
+        volumeMounts:
+        - name: secret-vol
+          mountPath: /mosquitto/secret/
+          readOnly: true
+      volumes:
+      - name: config-vol
+        configMap:
+          name: config-file
+      volumes:
+      - name: secret-vol
+        secret:
+          secretName: secret-file

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Values.serviceName}}
+  labels:
+    app: {{.Values.serviceName}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.serviceName}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.serviceName}}
+    spec:
+      containers:
+      - name: {{.Values.serviceName}}
+        image: redis:alpine
+        ports:
+        - containerPort: {{.Values.servicePort}}
+        volumeMounts:
+        - mountPath: {{.Values.serviceMontPath}}
+          name: {{.Values.volumeName}}
+      volumes:
+      - name: {{.Values.volumeName}}
+        emptyDir: {}

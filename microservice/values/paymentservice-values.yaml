@@ -1,0 +1,12 @@
+#deployment values
+serviceName: paymentservice
+serviceCount: 2
+imageName: gcr.io/google-samples/microservices-demo/paymentservice
+imageTag: v0.2.3
+servicePort: 50051
+containerVars: 
+  - name: PORT
+    value: 50051
+#service values
+servicePortType: ClusterIp
+hostPort: 50051
