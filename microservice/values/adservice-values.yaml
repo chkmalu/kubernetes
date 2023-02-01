@@ -1,6 +1,6 @@
 #deployment values
 serviceName: adservice
-serviceCount: 2
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/adservice
 imageTag: v0.3.5
 servicePort: 9555
@@ -8,5 +8,5 @@ containerVars:
   - name: PORT
     value: 9555
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 9555

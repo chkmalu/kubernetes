@@ -1,6 +1,6 @@
 #deployment values
 serviceName: currencyservice
-serviceCount: 2
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/currencyservice
 imageTag: v0.2.3
 servicePort: 7000
@@ -8,5 +8,5 @@ containerVars:
   - name: PORT
     value: 7000
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 7000

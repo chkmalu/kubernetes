@@ -2,7 +2,6 @@
 serviceName: frontend
 serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/frontend
-imageTag: v0.2.3
 servicePort: 8080
 containerVars: 
   - name: PORT
@@ -25,4 +24,4 @@ containerVars:
 #service values
 servicePortType: LoadBalancer
 hostPort: 80
-serviceNodePort: 30004
+serviceNodePort: 30007

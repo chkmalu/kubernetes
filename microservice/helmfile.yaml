@@ -1,0 +1,46 @@
+#recommend way to deploy helm chart
+releases:
+  - name: adservice
+    chart: charts/microservices/
+    values:
+      - values/adservice-values.yaml
+  - name: redischart
+    chart: charts/redischart/
+    values:
+      - values/redischart-values.yaml
+  - name: checkoutservice
+    chart: charts/microservices/
+    values:
+      - values/checkoutservice-values.yaml
+  - name: currencyservice
+    chart: charts/microservices/
+    values:
+      - values/currencyservice-values.yaml
+  - name: emailservice
+    chart: charts/microservices/
+    values:
+      - values/emailservice-values.yaml
+  - name: paymentservice
+    chart: charts/microservices/
+    values:
+      - values/paymentservice-values.yaml
+  - name: productcatalogservice
+    chart: charts/microservices/
+    values:
+      - values/productcatalogservice-values.yaml
+  - name: recommendationservice
+    chart: charts/microservices/
+    values:
+      - values/recommendationservice-values.yaml
+  - name: shippingservice
+    chart: charts/microservices/
+    values:
+      - values/shippingservice-values.yaml
+  - name: frontend
+    chart: charts/frontend/
+    values:
+      - values/frontend-values.yaml
+  - name: cartservice
+    chart: charts/microservices/
+    values:
+      - values/cartservice-values.yaml

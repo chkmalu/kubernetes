@@ -1,6 +1,6 @@
 #deployment values
 serviceName: cartservice
-serviceCount: 2
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/cartservice
 imageTag: v0.2.3
 servicePort: 7070
@@ -10,5 +10,5 @@ containerVars:
   - name: REDIS_ADDR
     value: "redis-cart:6379"
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 7070

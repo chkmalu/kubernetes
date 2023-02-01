@@ -1,8 +1,7 @@
 #deployment values
 serviceName: my-service
 serviceCount: 2
-imageName: gcr.io/google-samples/microservices-demo/
-imageTag: v0.2.3
+imageName: redis
 servicePort: 80
 containerVars: 
   - name: PORT

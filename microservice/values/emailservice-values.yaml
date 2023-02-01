@@ -1,6 +1,6 @@
 #deployment values
 serviceName: emailservice
-serviceCount: 2
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/emailservice
 imageTag: v0.2.3
 servicePort: 8080
@@ -8,5 +8,5 @@ containerVars:
   - name: PORT
     value: 8080
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 5000

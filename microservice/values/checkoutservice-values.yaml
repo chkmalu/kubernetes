@@ -1,6 +1,6 @@
 #deployment values
-serviceName: adservice
-serviceCount: 2
+serviceName: checkoutservice
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/checkoutservice
 imageTag: v0.2.3
 servicePort: 5050
@@ -20,5 +20,5 @@ containerVars:
   - name: CART_SERVICE_ADDR
     value: "cartservice:7070"
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 5050

@@ -1,13 +1,15 @@
 #deployment values
 serviceName: recommendationservice
-serviceCount: 2
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/recommendationservice
 imageTag: v0.2.3
 servicePort: 8080
 containerVars: 
   - name: PORT
     value: 8080
+  - name: PRODUCT_CATALOG_SERVICE_ADDR
+    value: "productcatalogservice:3550"
 
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 8080

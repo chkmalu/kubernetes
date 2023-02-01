@@ -1,6 +1,6 @@
 #deployment values
 serviceName: productcatalogservice
-serviceCount: 2
+serviceCount: 1
 imageName: gcr.io/google-samples/microservices-demo/productcatalogservice
 imageTag: v0.2.3
 servicePort: 3550
@@ -8,5 +8,5 @@ containerVars:
   - name: PORT
     value: 3550
 #service values
-servicePortType: ClusterIp
+servicePortType: ClusterIP
 hostPort: 3550
