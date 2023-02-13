@@ -1,0 +1,9 @@
+appName: jsapp
+appName2: jsapp2
+appImage: chikamalu/jsapp
+appTag: 1.1
+appTargetPort: 80
+
+appServiceType: LoadBalancer
+appPort: 80
+appNodePort: 30006

@@ -1,0 +1,13 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: devcluster
+  region: us-east-1 
+
+fargateProfiles:
+  - name: devprofile
+    selectors:
+      - namespace: jsapp-dev 
+      - namespace: game-2048
+      - namespace: kube-system
